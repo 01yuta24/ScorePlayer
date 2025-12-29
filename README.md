@@ -29,3 +29,4 @@ git remote -v
 origin  git@github-personal:{your_gitName}/ScorePlayer.git (fetch)
 origin  git@github-personal:{your_gitName}/ScorePlayer.git (push)
 ```
+2025 12/29更新
