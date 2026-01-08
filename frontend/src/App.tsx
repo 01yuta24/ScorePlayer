@@ -1,12 +1,13 @@
-import {useNavigate} from "react-router";
+import {Route, Routes} from "react-router";
+import Home from "./component/Home.tsx";
+import Menu from "./component/menu.tsx";
 
 const App: React.FC = () => {
-    const navigate = useNavigate();
     return (
-        <>
-            <h1>Hello, World!</h1>
-            <button onClick={()=>navigate("/home")}>ボタン</button>
-        </>
+        <Routes>
+            <Route path="/" element={<Menu />} />
+            <Route path="/home" element={<Home />} />
+        </Routes>
     )
 }
 export default App
