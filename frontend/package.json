@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "biome check --write ./src *.ts",
+    "lint-check": "biome check ./src *.ts",
     "preview": "vite preview",
     "test": "tsc -b && vitest run --coverage"
   },
@@ -15,6 +16,7 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.11",
     "@eslint/js": "^9.39.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
