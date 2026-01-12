@@ -36,6 +36,10 @@ class HomePageObject {
   get keyB() {
     return within(this.keyBoard).getByRole("button", { name: "シ" });
   }
+
+  get gakufuBoard() {
+    return screen.getByLabelText("gakufu-board");
+  }
 }
 
 const LocationDisplay = () => {
@@ -70,44 +74,81 @@ test("Menuに戻るボタンを押した時、/に遷移する", async () => {
   expect(screen.getByTestId("location-display").textContent).toBe("/");
 });
 
-describe("キーボードテスト", () => {
-  test("キーボードの枠が見える", () => {
-    render(view("/home"));
-    expect(home.keyBoard).toBeInTheDocument();
-  });
+test("キーボードの枠が見える", () => {
+  render(view("/home"));
+  expect(home.keyBoard).toBeInTheDocument();
+});
 
-  test("ドのボタンが見える", () => {
-    render(view("/home"));
-    expect(home.keyC).toBeInTheDocument();
-  });
+test("ドのボタンが見える", () => {
+  render(view("/home"));
+  expect(home.keyC).toBeInTheDocument();
+});
 
-  test("レのボタンが見える", () => {
-    render(view("/home"));
-    expect(home.keyD).toBeInTheDocument();
-  });
+test("レのボタンが見える", () => {
+  render(view("/home"));
+  expect(home.keyD).toBeInTheDocument();
+});
+test("ミのボタンが見える", () => {
+  render(view("/home"));
+  expect(home.keyE).toBeInTheDocument();
+});
 
-  test("ミのボタンが見える", () => {
-    render(view("/home"));
-    expect(home.keyE).toBeInTheDocument();
-  });
+test("ファのボタンが見える", () => {
+  render(view("/home"));
+  expect(home.keyF).toBeInTheDocument();
+});
 
-  test("ファのボタンが見える", () => {
-    render(view("/home"));
-    expect(home.keyF).toBeInTheDocument();
-  });
+test("ソのボタンが見える", () => {
+  render(view("/home"));
+  expect(home.keyG).toBeInTheDocument();
+});
 
-  test("ソのボタンが見える", () => {
-    render(view("/home"));
-    expect(home.keyG).toBeInTheDocument();
-  });
+test("ラのボタンが見える", () => {
+  render(view("/home"));
+  expect(home.keyA).toBeInTheDocument();
+});
 
-  test("ラのボタンが見える", () => {
-    render(view("/home"));
-    expect(home.keyA).toBeInTheDocument();
-  });
+test("シのボタンが見える", () => {
+  render(view("/home"));
+  expect(home.keyB).toBeInTheDocument();
+});
 
-  test("シのボタンが見える", () => {
-    render(view("/home"));
-    expect(home.keyB).toBeInTheDocument();
-  });
+test("ドのボタンを押すと、楽譜にドが表示される", async () => {
+  render(view("/home"));
+  await userEvent.click(home.keyC);
+  expect(home.gakufuBoard.textContent).toBe("ド");
+});
+
+test("レのボタンを押すと、楽譜にレが表示される", async () => {
+  render(view("/home"));
+  await userEvent.click(home.keyD);
+  expect(home.gakufuBoard.textContent).toBe("レ");
+});
+
+test("ミのボタンを押すと、楽譜にミが表示される", async () => {
+  render(view("/home"));
+  await userEvent.click(home.keyE);
+  expect(home.gakufuBoard.textContent).toBe("ミ");
+});
+
+test("ファのボタンを押すと、楽譜にファが表示される", async () => {
+  render(view("/home"));
+  await userEvent.click(home.keyF);
+  expect(home.gakufuBoard.textContent).toBe("ファ");
+});
+
+test("ソのボタンを押すと、楽譜にソが表示される", async () => {
+  render(view("/home"));
+  await userEvent.click(home.keyG);
+  expect(home.gakufuBoard.textContent).toBe("ソ");
+});
+test("ラのボタンを押すと、楽譜にラが表示される", async () => {
+  render(view("/home"));
+  await userEvent.click(home.keyA);
+  expect(home.gakufuBoard.textContent).toBe("ラ");
+});
+test("シのボタンを押すと、楽譜にシが表示される", async () => {
+  render(view("/home"));
+  await userEvent.click(home.keyB);
+  expect(home.gakufuBoard.textContent).toBe("シ");
 });

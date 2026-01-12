@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1767948336907" clover="3.2.0">
-  <project timestamp="1767948336907" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="12" coveredelements="12" complexity="0" loc="8" ncloc="8" packages="1" files="2" classes="2"/>
+<coverage generated="1768260192152" clover="3.2.0">
+  <project timestamp="1768260192152" name="All files">
+    <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="11" elements="27" coveredelements="27" complexity="0" loc="16" ncloc="16" packages="1" files="2" classes="2"/>
     <file name="Home.tsx" path="/Users/sasakiyuuta/IdeaProjects/ScorePlayer/frontend/src/component/Home.tsx">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="4" count="12" type="stmt"/>
-      <line num="5" count="12" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="9"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="26" type="stmt"/>
+      <line num="6" count="26" type="stmt"/>
+      <line num="7" count="26" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="22" count="1" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
     </file>
     <file name="menu.tsx" path="/Users/sasakiyuuta/IdeaProjects/ScorePlayer/frontend/src/component/menu.tsx">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
