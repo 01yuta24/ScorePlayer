@@ -74,6 +74,14 @@ const Home = () => {
         </button>
       </section>
 
+      <button
+        type={"button"}
+        onClick={() => {
+          setGakufu([""]);
+        }}
+      >
+        リセット
+      </button>
       <section aria-label={"gakufu-board"}>
         <div>{gakufu}</div>
       </section>

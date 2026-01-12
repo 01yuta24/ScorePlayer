@@ -40,6 +40,10 @@ class HomePageObject {
   get gakufuBoard() {
     return screen.getByLabelText("gakufu-board");
   }
+
+  get resetButton() {
+    return screen.getByRole("button", { name: "リセット" });
+  }
 }
 
 const LocationDisplay = () => {
@@ -79,15 +83,20 @@ test("キーボードの枠が見える", () => {
   expect(home.keyBoard).toBeInTheDocument();
 });
 
+test("楽譜が見える", () => {
+  render(view("/home"));
+  expect(home.gakufuBoard).toBeInTheDocument();
+});
+
 test("ドのボタンが見える", () => {
   render(view("/home"));
   expect(home.keyC).toBeInTheDocument();
 });
-
 test("レのボタンが見える", () => {
   render(view("/home"));
   expect(home.keyD).toBeInTheDocument();
 });
+
 test("ミのボタンが見える", () => {
   render(view("/home"));
   expect(home.keyE).toBeInTheDocument();
@@ -136,7 +145,6 @@ test("ファのボタンを押すと、楽譜にファが表示される", async
   await userEvent.click(home.keyF);
   expect(home.gakufuBoard.textContent).toBe("ファ");
 });
-
 test("ソのボタンを押すと、楽譜にソが表示される", async () => {
   render(view("/home"));
   await userEvent.click(home.keyG);
@@ -151,4 +159,22 @@ test("シのボタンを押すと、楽譜にシが表示される", async () =>
   render(view("/home"));
   await userEvent.click(home.keyB);
   expect(home.gakufuBoard.textContent).toBe("シ");
+});
+
+test("リセットボタンが見える", () => {
+  render(view("/home"));
+  expect(home.resetButton).toBeInTheDocument();
+});
+
+test("リセットボタンを押すと、楽譜がリセットされる", async () => {
+  render(view("/home"));
+  // 準備
+  await userEvent.click(home.keyC);
+  expect(home.gakufuBoard.textContent).toBe("ド");
+
+  // 実行
+  await userEvent.click(home.resetButton);
+
+  // 検証
+  expect(home.gakufuBoard.textContent).toBe("");
 });
