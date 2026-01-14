@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: backend
+  security:
+    user:
+      name:admin
+      password:password
