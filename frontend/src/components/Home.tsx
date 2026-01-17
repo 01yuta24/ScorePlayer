@@ -73,7 +73,9 @@ const Home = () => {
           シ
         </button>
       </section>
-
+      <button type={"button"} onClick={() => {}}>
+        保存する
+      </button>
       <button
         type={"button"}
         onClick={() => {

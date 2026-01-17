@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
-import Home from "./component/Home.tsx";
-import Menu from "./component/menu.tsx";
+import Home from "./components/Home.tsx";
+import Menu from "./components/menu.tsx";
 
 const App: React.FC = () => {
   return (

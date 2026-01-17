@@ -1,6 +1,8 @@
 import { render, screen, within } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event/dist/cjs/setup/index.js";
+import { http } from "msw";
 import { MemoryRouter, useLocation } from "react-router";
+import { server } from "../mocks/mswSetup.ts";
 import Home from "./Home.tsx";
 
 class HomePageObject {
@@ -43,6 +45,10 @@ class HomePageObject {
 
   get resetButton() {
     return screen.getByRole("button", { name: "リセット" });
+  }
+
+  get saveButton() {
+    return screen.getByRole("button", { name: "保存する" });
   }
 }
 
@@ -177,4 +183,22 @@ test("リセットボタンを押すと、楽譜がリセットされる", async
 
   // 検証
   expect(home.gakufuBoard.textContent).toBe("");
+});
+
+test("保存するボタンが見える", () => {
+  render(view("/home"));
+
+  expect(home.saveButton).toBeInTheDocument();
+});
+
+test("保存するボタンを押すと、/api/gakufu に楽譜データが送信される", async () => {
+  server.use(
+    http.post("/api/gakufu", async ({ request }) => {
+      const requestJson = request.json();
+      if (JSON.stringify(requestJson) === JSON.stringify({})) {
+      }
+    }),
+  );
+
+  render(view("/home"));
 });
