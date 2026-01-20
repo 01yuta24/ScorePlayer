@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
+// import * as Tone from "tone";
+
 const Home = () => {
   const [gakufu, setGakufu] = useState<string[]>([]);
   const navigate = useNavigate();
+  // const newSynth = new Tone.Synth().toDestination();
   return (
     <div>
       <h1>Home</h1>
@@ -20,6 +23,8 @@ const Home = () => {
           type={"button"}
           onClick={() => {
             setGakufu([...gakufu, "ド"]);
+            // Tone.start();
+            // newSynth.triggerAttackRelease("C4", "8n");
           }}
         >
           ド
